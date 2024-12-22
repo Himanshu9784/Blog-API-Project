@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Home Page</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Create Your Beautiful Blog</h1>
+    <% for(blog of blogs){ %>
+        <div class="blog">
+            <h3 class="user">username: @<%=blog.username%></h3>
+            <h4>content: <p><%=blog.content%></p></h4>
+            <a href="http://localhost:8080/blogs/<%=blog.id%>">See details</a> &nbsp; &nbsp;
+            <a href="http://localhost:8080/blogs/<%=blog.id%>/edit">Edit details</a> &nbsp; &nbsp;
+            <form style="display: inline-block;" action="/blogs/<%=blog.id%>?_method=DELETE" method="post">
+                <button>Delete</button>
+            </form>
+        </div>
+        <% } %>
+        <br><br><br>
+        <a href="http://localhost:8080/blogs/new">Creat New Blog</a>
+</body>
+</html>
